@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+<!doctype html>
+<html>
+    <head>All Blogz</title>
+    </head>
+<body>
+ 
+
+    {% block content %}
+    {% if blogs|length == 0 %}
+    <p>No blogs added yet.</br>Add a new blog now!</p>
+    {% else %}
+
+        <ul>
+            {% for blog in blogs %}
+            <li><h2>
+                <a href="/print_blog?id={{blog.id}}"  >
+                    {{blog.title}}
+                </a>
+                </h2></br>
+                <h3>{{blog.body}}</h3>
+                <hr />
+            </li>
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+
+
+    {% endblock %}
+
+</body>
+</html>

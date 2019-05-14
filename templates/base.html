@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+            <title>blogz!!!</title>
+        </head>
+    <body>
+            <div>
+                    <a href='/'>home</a>
+                
+                    <a href='/blog'>all posts</a>
+
+                    <a href='/newpost'>new post</a>
+            </div>
+            <div style='float: right;'>  
+                    <a href='/login'>login</a>
+                    <a href='/register'>register</a>
+                    <a href='/logout'>logout</a>
+                       
+                </div>
+
+        <style>
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+<body>
+
+        
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% for category, message in messages %}
+            <li class="error">{{message}}</li>
+        {% endfor %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

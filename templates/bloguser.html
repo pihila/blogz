@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+<!doctype html>
+<html>
+    <head>
+        <title>Blog Users!</title>
+    </head>
+<body>
+ 
+
+    {% block content %}
+    {% if user_names|length == 0 %}
+    <p ><font color="red">No registers users have been added yet.</br>Please <a href="/register">register</a> and add a new blog now!</p></font>
+    {% else %}
+
+        <ul>
+            {% for user_name in user_names %}
+            <li><h2><a href="/userblog?id={{user_name.id}}"   value="{{ user_name.user_name }}"  >{{user_name.user_name}}</a></h2></br>
+               
+            </li>
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+
+
+    {% endblock %}
+
+</body>
+</html>
